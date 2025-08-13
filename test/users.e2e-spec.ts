@@ -37,9 +37,7 @@ describe('Users (e2e)', () => {
       .send({ name: 'Bob', email: 'bob@example.com' })
       .expect(201);
 
-    const res = await request(app.getHttpServer())
-      .get('/users')
-      .expect(200);
+    const res = await request(app.getHttpServer()).get('/users').expect(200);
 
     expect(Array.isArray(res.body)).toBe(true);
     expect(res.body.length).toBeGreaterThan(0);
